@@ -3,7 +3,7 @@ package hust.soict.elitech.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable{
     private String artist;
     private List<Track> tracks = new ArrayList<>();
 
@@ -45,5 +45,16 @@ public class CompactDisc extends Disc {
             totalLength += track.getLength();
         }
         return totalLength;
+    }
+    // Triển khai hàm play() cho CD
+    @Override
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle() + " by artist: " + this.artist);
+        System.out.println("Total length: " + this.getLength());
+        
+        // Vòng lặp gọi hàm play() của từng track
+        for (Track track : tracks) {
+            track.play();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package hust.soict.elitech.aims.media;
 
-public class Track {
+public class Track implements Playable {
     private String title;
     private int length;
 
@@ -9,15 +9,16 @@ public class Track {
         this.length = length;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle() { return title; }
+    public int getLength() { return length; }
+
+    // Triển khai hàm play() cho Track
+    @Override
+    public void play() {
+        System.out.println("Playing track: " + this.getTitle());
+        System.out.println("Track length: " + this.getLength());
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    // Cần ghi đè equals để hàm contains() hoạt động chính xác
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Track) {
