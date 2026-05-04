@@ -1,5 +1,5 @@
 package hust.soict.elitech.aims.store;
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 public class Store {
     private static final int MAX_ITEMS_IN_STORE = 50;
     private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[MAX_ITEMS_IN_STORE];

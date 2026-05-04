@@ -8,67 +8,54 @@
  *
  * @author Phạm Minh Hùng
  */
-package hust.soict.elitech.aims.disc;
-public class DigitalVideoDisc {
-    private String title;
-    private String category;
+package hust.soict.elitech.aims.media;
+public class DigitalVideoDisc extends Media {
+    
     private String director;
     private int length;
-    private float cost;
-    private int id;
 
+    // Biến static để tự động tăng ID cho DVD
     private static int nbDigitalVideoDiscs = 0;
 
+    // Các Constructor được cập nhật để sử dụng setter từ lớp Media
     public DigitalVideoDisc(String title) {
         super();
-        this.title = title;
+        this.setTitle(title);
         nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+        this.setId(nbDigitalVideoDiscs);
     }
 
     public DigitalVideoDisc(String category, String title, float cost) {
-        this.category = category;
-        this.title = title;
-        this.cost = cost;
+        super();
+        this.setCategory(category);
+        this.setTitle(title);
+        this.setCost(cost);
         nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+        this.setId(nbDigitalVideoDiscs);
     }
 
     public DigitalVideoDisc(String director, String category, String title, float cost) {
+        super();
         this.director = director;
-        this.category = category;
-        this.title = title;
-        this.cost = cost;
+        this.setCategory(category);
+        this.setTitle(title);
+        this.setCost(cost);
         nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public static int getNbDigitalVideoDiscs() {
-        return nbDigitalVideoDiscs;
+        this.setId(nbDigitalVideoDiscs);
     }
 
     public DigitalVideoDisc(String category, String title, String director, int length, float cost) {
-        this.title = title;
-        this.category = category;
+        super();
+        this.setTitle(title);
+        this.setCategory(category);
         this.director = director;
         this.length = length;
-        this.cost = cost;
+        this.setCost(cost);
         nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+        this.setId(nbDigitalVideoDiscs);
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
+    // Getter cho các thuộc tính riêng của DVD
     public String getDirector() {
         return director;
     }
@@ -77,18 +64,11 @@ public class DigitalVideoDisc {
         return length;
     }
 
-    public float getCost() {
-        return cost;
+    public static int getNbDigitalVideoDiscs() {
+        return nbDigitalVideoDiscs;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
+    // Setter cho các thuộc tính riêng của DVD
     public void setDirector(String director) {
         this.director = director;
     }
@@ -97,20 +77,16 @@ public class DigitalVideoDisc {
         this.length = length;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
     @Override
     public String toString() {
-        return title + " - " + (category != null ? category : "Unknown") +
+        // Sử dụng các phương thức getter từ lớp Media (getTitle, getCategory, getCost)
+        return getTitle() + " - " + (getCategory() != null ? getCategory() : "Unknown") +
                 " - " + (director != null ? director : "N/A") +
                 " - " + (length > 0 ? length + " mins" : "Unknown length") +
-                ": " + cost + " USD";
+                ": " + getCost() + " USD";
     }
 
     public boolean isMatch(String title) {
-        return this.title.equals(title);
+        return this.getTitle().equalsIgnoreCase(title);
     }
-
 }

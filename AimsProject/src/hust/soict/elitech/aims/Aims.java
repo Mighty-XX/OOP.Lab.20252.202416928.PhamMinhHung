@@ -10,7 +10,7 @@
  */
 package hust.soict.elitech.aims;
 import hust.soict.elitech.aims.cart.Cart;
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 public class Aims {
     public static void main(String[] args) {
         Cart anOrder = new Cart();

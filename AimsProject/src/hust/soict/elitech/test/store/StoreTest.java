@@ -1,6 +1,6 @@
 package hust.soict.elitech.test.store;
 
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 import hust.soict.elitech.aims.store.Store;
 
 public class StoreTest {

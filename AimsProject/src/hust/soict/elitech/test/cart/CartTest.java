@@ -11,7 +11,7 @@
 package hust.soict.elitech.test.cart;
 
 import hust.soict.elitech.aims.cart.Cart;
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 public class CartTest {
     public static void main(String[] args) {
         // Create a new cart

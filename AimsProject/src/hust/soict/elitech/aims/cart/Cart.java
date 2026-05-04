@@ -9,7 +9,7 @@
  * @author Phạm Minh Hùng
  */
 package hust.soict.elitech.aims.cart;
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];

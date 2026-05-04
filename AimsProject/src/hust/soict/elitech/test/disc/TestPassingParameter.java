@@ -9,7 +9,7 @@
  * @author Phạm Minh Hùng
  */
 package hust.soict.elitech.test.disc;
-import hust.soict.elitech.aims.disc.DigitalVideoDisc;
+import hust.soict.elitech.aims.media.DigitalVideoDisc;
 public class TestPassingParameter {
     public static void main(String[] args) {
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
