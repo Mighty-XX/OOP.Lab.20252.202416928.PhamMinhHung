@@ -16,4 +16,18 @@ Cart là aggregate của Media: Giỏ hàng chứa một danh sách các sản p
 
 Store là aggregate của Media: Cửa hàng chứa một danh sách các sản phẩm Media. 
 
+Sections 15:
+If the passing object is not an instance of Media, what happens?
 
+Ans:
+Nếu có kiểm tra instanceof: Phương thức sẽ trả về false. 
+Điều này đảm bảo tính an toàn cho chương trình, tránh lỗi NullPointerException
+ (nếu đối tượng là null) và đảm bảo tính logic 
+ (hai đối tượng khác loại thì không thể bằng nhau).
+
+Nếu không kiểm tra instanceof mà trực tiếp ép kiểu (Casting): 
+Hệ thống sẽ ném ra ngoại lệ ClassCastException và 
+làm dừng chương trình (Runtime crash).
+
+Kết luận: Việc kiểm tra kiểu dữ liệu là bước bắt buộc để bảo vệ tính bền vững 
+của mã nguồn và tuân thủ các nguyên tắc thiết kế hướng đối tượng trong Java."

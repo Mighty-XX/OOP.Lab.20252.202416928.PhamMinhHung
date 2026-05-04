@@ -27,4 +27,26 @@ public abstract class Media {
 
     public float getCost() { return cost; }
     public void setCost(float cost) { this.cost = cost; }
+     
+    @Override
+    public boolean equals(Object obj) {
+        // 1. Kiểm tra nếu so sánh với chính nó (cùng địa chỉ ô nhớ)
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Media)) {
+            return false;
+        }
+
+        // 3. Ép kiểu đối tượng Object về kiểu Media để truy cập thuộc tính
+        Media other = (Media) obj;
+
+        // 4. So sánh thuộc tính title (Sử dụng equals của String, chú ý null)
+        if (this.title == null) {
+            return other.title == null;
+        }
+        return this.title.equalsIgnoreCase(other.title);
+    }
 }
+
