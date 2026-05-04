@@ -20,13 +20,13 @@ public class Aims {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
 
-        anOrder.addDigitalVideoDisc(dvd1);
-        anOrder.addDigitalVideoDisc(dvd2);
-        anOrder.addDigitalVideoDisc(dvd3);
+        anOrder.addMedia(dvd1);
+        anOrder.addMedia(dvd2);
+        anOrder.addMedia(dvd3);
 
         System.out.println("Total cost is: " + anOrder.totalCost());
 
-        anOrder.removeDigitalVideoDisc(dvd1);
+        anOrder.removeMedia(dvd1);
         System.out.println("Total cost is: " + anOrder.totalCost());
     }
 }
