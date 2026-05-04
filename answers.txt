@@ -1,0 +1,8 @@
+Section 4: 
+What should be the return type of this method? 
+
+Ans: 
+Kiểu trả về của phương thức toString() trong Java bắt buộc phải là String. 
+Phương thức này ghi đè (override) phương thức mặc định của class Object 
+để trả về chuỗi đại diện cho đối tượng đó.
+
