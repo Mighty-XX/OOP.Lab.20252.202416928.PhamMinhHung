@@ -3,19 +3,16 @@ package hust.soict.elitech.aims.media;
 public class Disc extends Media {
     private int length;
     private String director;
-
+    
     public Disc() {
         super();
     }
-
-    public Disc(String title, String category, String director, int length, float cost) {
-        super();
-        this.setTitle(title);
-        this.setCategory(category);
-        this.setCost(cost);
+     public Disc(String title, String category, String director, int length, float cost) {
+        super(title, category, cost); // Gọi constructor của Media
         this.director = director;
         this.length = length;
     }
+
 
     public int getLength() {
         return length;

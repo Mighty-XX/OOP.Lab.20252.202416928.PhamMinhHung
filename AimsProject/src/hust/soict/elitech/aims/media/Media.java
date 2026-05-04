@@ -8,6 +8,12 @@ public abstract class Media {
 
     public Media() {
     }
+    // Constructor đầy đủ
+    public Media(String title, String category, float cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
 
     // Các Getter và Setter chung cho tất cả Media
     public int getId() { return id; }

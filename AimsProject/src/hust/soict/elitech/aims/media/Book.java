@@ -7,8 +7,8 @@ public class Book extends Media {
     // Xóa id, title, category, cost vì đã kế thừa từ Media
     private List<String> authors = new ArrayList<String>();
 
-    public Book() {
-        super(); // Gọi constructor của Media
+     public Book(String title, String category, float cost) {
+        super(title, category, cost);
     }
 
     public List<String> getAuthors() {

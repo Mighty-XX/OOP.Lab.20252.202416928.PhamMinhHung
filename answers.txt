@@ -6,3 +6,14 @@ Kiểu trả về của phương thức toString() trong Java bắt buộc phả
 Phương thức này ghi đè (override) phương thức mặc định của class Object 
 để trả về chuỗi đại diện cho đối tượng đó.
 
+Section 13:
+Which classes are aggregates of other classes?
+
+Ans:
+CompactDisc là aggregate của Track: Một đĩa CD chứa một danh sách (tập hợp) các đối tượng Track.
+
+Cart là aggregate của Media: Giỏ hàng chứa một danh sách các sản phẩm Media.
+
+Store là aggregate của Media: Cửa hàng chứa một danh sách các sản phẩm Media. 
+
+
