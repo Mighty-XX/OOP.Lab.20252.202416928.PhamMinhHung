@@ -26,4 +26,8 @@ public class Book extends Media {
             authors.remove(authorName);
         }
     }
+    @Override
+    public String toString() {
+        return "Book: " + getTitle() + " [This is a Book object]";
+    }
 }

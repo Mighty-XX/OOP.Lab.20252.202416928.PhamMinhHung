@@ -50,4 +50,14 @@ public class Store {
     public ArrayList<Media> getItemsInStore() {
         return itemsInStore;
     }
+    // ex18
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            // So sánh không phân biệt hoa thường để người dùng dễ nhập liệu
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media; // Trả về đối tượng tìm thấy
+            }
+        }
+        return null; // Trả về null nếu không tìm thấy
+    }
 }

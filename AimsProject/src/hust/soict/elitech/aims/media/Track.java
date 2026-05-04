@@ -19,7 +19,6 @@ public class Track implements Playable {
         System.out.println("Track length: " + this.getLength());
     }
 
-    
     @Override
     public boolean equals(Object obj) {
         // 1. Kiểm tra tham chiếu

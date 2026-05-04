@@ -1,4 +1,4 @@
-Section 4: 
+SECTION 4: 
 What should be the return type of this method? 
 
 Ans: 
@@ -6,7 +6,7 @@ Kiểu trả về của phương thức toString() trong Java bắt buộc phả
 Phương thức này ghi đè (override) phương thức mặc định của class Object 
 để trả về chuỗi đại diện cho đối tượng đó.
 
-Section 13:
+SECTION 13:
 Which classes are aggregates of other classes?
 
 Ans:
@@ -16,7 +16,7 @@ Cart là aggregate của Media: Giỏ hàng chứa một danh sách các sản p
 
 Store là aggregate của Media: Cửa hàng chứa một danh sách các sản phẩm Media. 
 
-Sections 15:
+SECTION 15:
 If the passing object is not an instance of Media, what happens?
 
 Ans:
@@ -31,3 +31,139 @@ làm dừng chương trình (Runtime crash).
 
 Kết luận: Việc kiểm tra kiểu dữ liệu là bước bắt buộc để bảo vệ tính bền vững 
 của mã nguồn và tuân thủ các nguyên tắc thiết kế hướng đối tượng trong Java."
+
+SECTION 16:
+1. What are the advantages of Polymorphism? (Ưu điểm của Đa hình là gì?)
+
+Ans:
+Khả năng mở rộng (Extensibility): Bạn có thể thêm các lớp con mới 
+(ví dụ lớp Magazines) mà không cần sửa đổi mã nguồn ở vòng lặp in thông tin. 
+Hệ thống tự động nhận diện lớp mới.
+
+Tái sử dụng mã nguồn (Reusability): Bạn chỉ cần viết một đoạn code xử lý cho 
+kiểu cha (Media), và nó sẽ hoạt động đúng cho tất cả các kiểu con.
+
+Giảm sự phụ thuộc (Loose Coupling): Giúp tách biệt giữa việc "gọi phương thức" 
+và "cách phương thức đó thực hiện", làm cho hệ thống linh hoạt hơn.
+
+Đơn giản hóa code: Thay vì dùng nhiều câu lệnh if-else hoặc switch-case 
+để kiểm tra loại đối tượng rồi mới in, ta chỉ cần gọi một dòng duy nhất m.toString().
+
+2. How is Inheritance useful to achieve Polymorphism in Java? (Kế thừa giúp ích gì để đạt được Đa hình?)
+
+Ans:
+Tạo ra mối quan hệ "Is-A": Kế thừa thiết lập một cấu trúc phân cấp. 
+Để một danh sách List<Media> có thể chứa cả CD và DVD, 
+thì CD và DVD bắt buộc phải kế thừa từ Media.
+
+Cơ chế Ghi đè (Overriding): Kế thừa cho phép lớp con định nghĩa lại hành vi 
+của lớp cha. Nếu không có kế thừa, lớp con không thể "ghi đè" 
+phương thức của cha, và đa hình không thể xảy ra.
+
+Ép kiểu lên (Upcasting): Nhờ kế thừa, ta có thể đối xử với một 
+đối tượng lớp con như một đối tượng lớp cha (Media m = new Book()), 
+đây là nền tảng kỹ thuật để thực hiện đa hình.
+
+3. What are the differences between Polymorphism and Inheritance in Java? (Sự khác biệt giữa Đa hình và Kế thừa?)
+
+Ans:
+Về Bản chất và Định nghĩa:
+Kế thừa: Là cơ chế cho phép một lớp (lớp con) thừa hưởng lại 
+các thuộc tính và phương thức của một lớp khác (lớp cha). 
+Nó tạo ra mối quan hệ "IS-A" (Là một). Ví dụ: CompactDisc là một Media.
+
+Đa hình: Là hiện tượng các đối tượng thuộc các lớp khác nhau có thể hiểu 
+cùng một thông điệp theo các cách khác nhau. Cụ thể là các lớp con cùng thực 
+hiện một hành động (cùng tên phương thức) nhưng cho ra kết quả khác nhau. 
+Ví dụ: Cùng gọi toString() nhưng CD in ra thông tin đĩa nhạc, còn Book in ra
+thông tin sách.
+
+Về Mục đích chính:
+Kế thừa: Tập trung vào việc Tái sử dụng mã nguồn (Code Reusability).
+Bạn viết code ở lớp cha một lần, các lớp con tự động có mà không cần viết lại.
+
+Đa hình: Tập trung vào sự Linh hoạt (Flexibility) và Khả năng mở rộng 
+(Extensibility). Giúp hệ thống dễ dàng chấp nhận những lớp mới mà không cần 
+sửa đổi code cũ đang vận hành.
+
+Về Thời điểm xác định (Timing):
+Kế thừa: Được xác định ngay ở thời điểm biên dịch (Compile-time). 
+Bạn phải dùng từ khóa extends để chỉ định rõ mối quan hệ này khi viết code.
+Đa hình: Thể hiện rõ nhất ở thời điểm chương trình chạy (Runtime) 
+(đối với đa hình động). Lúc code chạy, Java mới quyết định chính xác 
+phương thức của lớp nào sẽ được gọi dựa trên đối tượng thực tế nằm trong bộ nhớ.
+
+Về Mối quan hệ phụ thuộc:
+Kế thừa là nền tảng, là điều kiện cần để có Đa hình.
+
+Đa hình là ứng dụng nâng cao, là kết quả được sinh ra từ Kế thừa 
+(cùng với việc ghi đè phương thức @Override).
+
+Về Các khái niệm và Từ khóa đi kèm:
+Kế thừa: Gắn liền với các từ khóa extends, super, lớp 
+cơ sở (base class), lớp dẫn xuất (derived class).
+
+Đa hình: Gắn liền với các khái niệm Ghi đè (Override), Nạp chồng (Overload), 
+Liên kết động (Dynamic Binding), và Ép kiểu lên (Upcasting).
+
+SECTION 17:
+1: What class should implement the Comparable interface? (Lớp nào nên implement interface Comparable?)
+
+Ans:
+Lớp Media nên implement interface Comparable<Media>.
+Giải thích: Vì giỏ hàng (Cart) chứa một danh sách các đối tượng kiểu Media. 
+Để có thể sử dụng hàm Collections.sort(itemsOrdered) mà không cần truyền thêm
+tham số thứ hai, các đối tượng trong danh sách 
+(tức là Media và các lớp con của nó) phải có khả năng tự so sánh với nhau.
+
+2: In those classes, how should you implement the compareTo()method to reflect the ordering that
+we want? (Triển khai phương thức compareTo() như thế nào?)
+
+Ans:
+Bước 1: So sánh thuộc tính ưu tiên thứ nhất (Title)
+Sử dụng phương thức compareToIgnoreCase() của lớp String để so sánh tiêu đề của đối tượng hiện tại (this.title) với tiêu đề của đối tượng truyền vào (other.title).
+Việc dùng IgnoreCase giúp việc sắp xếp bảng chữ cái (A-Z) không bị phân biệt chữ hoa, chữ thường.
+
+Bước 2: Kiểm tra kết quả so sánh tiêu đề
+Nếu kết quả trả về khác 0 (nghĩa là tiêu đề hai đối tượng khác nhau), ta trả về ngay kết quả đó để xác định thứ tự.
+Nếu kết quả trả về bằng 0 (nghĩa là hai đối tượng trùng tiêu đề), chương trình sẽ tiếp tục thực hiện bước 3.
+
+Bước 3: So sánh thuộc tính ưu tiên thứ hai (Cost)
+Sử dụng hàm Float.compare() để so sánh giá của hai đối tượng.
+Lưu ý về thứ tự: Theo yêu cầu đề bài là "giá cao hơn xếp trước" (giảm dần), nên ta sẽ thực hiện so sánh theo thứ tự ngược: Float.compare(other.cost, this.cost).
+
+Bước 4: Trả về kết quả cuối cùng
+Giá trị trả về cuối cùng của hàm compareTo() phải là một số nguyên (int):
+Số âm: Đối tượng hiện tại đứng trước.
+Số dương: Đối tượng hiện tại đứng sau.
+Số 0: Hai đối tượng bằng nhau về thứ tự
+
+3: Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
+Comparable interface approach? (Có thể có đồng thời hai quy tắc sắp xếp nếu dùng Comparable không?)
+
+Ans: KHÔNG.
+Giải thích: Giao diện Comparable chỉ cho phép định nghĩa duy nhất một 
+phương thức compareTo(). Đây được gọi là "thứ tự sắp xếp tự nhiên" 
+(natural ordering) của đối tượng. Nếu bạn muốn người dùng có thể chọn lựa
+giữa "Sắp xếp theo tên" hoặc "Sắp xếp theo giá" thông qua các nút bấm, 
+bạn bắt buộc phải dùng Comparator như bài tập trước.
+
+4: Suppose the DVDs have a different ordering rule from the other media types, that is by title, then
+decreasing length, then cost. How would you modify your code to allow this?
+
+Ans:
+Ý 1: Ưu tiên so sánh thuộc tính chung (Title)
+Bắt đầu bằng việc so sánh title của hai đối tượng Media. Vì tất cả các loại Media (Book, CD, DVD) đều có tiêu đề, đây là tiêu chí phân loại đầu tiên.
+Nếu tiêu đề khác nhau, trả về kết quả so sánh tiêu đề ngay lập tức.
+
+Ý 2: Kiểm tra kiểu đối tượng (Type Checking)
+Nếu tiêu đề giống nhau, ta cần kiểm tra xem cả đối tượng hiện tại (this) và đối tượng so sánh (other) có cùng là thực thể của lớp DigitalVideoDisc hay không bằng toán tử instanceof.
+Việc này giúp tách biệt logic xử lý riêng cho DVD mà không làm ảnh hưởng đến các loại Media khác như Book hay CD.
+
+Ý 3: Ép kiểu và so sánh thuộc tính đặc thù của DVD (Length)
+Sau khi xác nhận cả hai đều là DVD, ta thực hiện ép kiểu (casting) về kiểu DigitalVideoDisc để truy cập vào thuộc tính length.
+Thực hiện so sánh độ dài theo thứ tự giảm dần (đĩa dài hơn xếp trước). Nếu độ dài khác nhau, trả về kết quả so sánh này.
+
+Ý 4: So sánh tiêu chí cuối cùng (Cost)
+Trường hợp cả hai là DVD có cùng tiêu đề và cùng độ dài, hoặc trường hợp không phải là DVD (như hai cuốn sách trùng tên), ta sẽ sử dụng tiêu chí cost để phân định.
+So sánh giá theo thứ tự giảm dần để hoàn tất quy trình sắp xếp.

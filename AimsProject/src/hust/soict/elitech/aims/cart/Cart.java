@@ -11,6 +11,8 @@
 package hust.soict.elitech.aims.cart;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 import hust.soict.elitech.aims.media.Media;
 
 public class Cart {
@@ -23,14 +25,31 @@ public class Cart {
     }
 
     // Phương thức thêm Media bất kỳ (Book, CD, DVD đều dùng được)
+     // Phương thức thêm Media và đếm số DVD nếu đối tượng là DVD
     public void addMedia(Media media) {
         if (!itemsOrdered.contains(media)) {
             itemsOrdered.add(media);
             System.out.println("The media has been added to the cart.");
+            
+            // BỔ SUNG: Kiểm tra nếu là DVD thì in ra số lượng DVD hiện có
+            if (media instanceof hust.soict.elitech.aims.media.DigitalVideoDisc) {
+                System.out.println("Number of DVDs in cart: " + countDVDs());
+            }
         } else {
             System.out.println("The media is already in the cart.");
         }
     }
+    // Hàm phụ để đếm số lượng DVD (Dùng cho yêu cầu ex 18)
+    private int countDVDs() {
+        int count = 0;
+        for (Media m : itemsOrdered) {
+            if (m instanceof hust.soict.elitech.aims.media.DigitalVideoDisc) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     // Phương thức xóa Media khỏi giỏ hàng
     public void removeMedia(Media media) {
@@ -40,6 +59,21 @@ public class Cart {
         } else {
             System.out.println("The media was not found in the cart.");
         }
+    }
+
+    //ex17
+    // PHƯƠNG THỨC SẮP XẾP THEO TIÊU ĐỀ
+    public void sortByTitle() {
+        // Sử dụng Collections.sort và truyền vào bộ so sánh đã định nghĩa ở lớp Media
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("The cart has been sorted by title.");
+        
+    }
+     // PHƯƠNG THỨC SẮP XẾP THEO GIÁ
+    public void sortByCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("The cart has been sorted by cost.");
+        // this.print();
     }
 
     // Tính tổng tiền cho tất cả các loại media trong giỏ
