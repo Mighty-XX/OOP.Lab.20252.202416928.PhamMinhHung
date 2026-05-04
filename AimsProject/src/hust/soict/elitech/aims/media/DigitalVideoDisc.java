@@ -9,15 +9,9 @@
  * @author Phạm Minh Hùng
  */
 package hust.soict.elitech.aims.media;
-public class DigitalVideoDisc extends Media {
-    
-    private String director;
-    private int length;
-
-    // Biến static để tự động tăng ID cho DVD
+public class DigitalVideoDisc extends Disc {
     private static int nbDigitalVideoDiscs = 0;
 
-    // Các Constructor được cập nhật để sử dụng setter từ lớp Media
     public DigitalVideoDisc(String title) {
         super();
         this.setTitle(title);
@@ -35,57 +29,24 @@ public class DigitalVideoDisc extends Media {
     }
 
     public DigitalVideoDisc(String director, String category, String title, float cost) {
-        super();
-        this.director = director;
-        this.setCategory(category);
-        this.setTitle(title);
-        this.setCost(cost);
+        // Gọi constructor của lớp Disc
+        super(title, category, director, 0, cost);
         nbDigitalVideoDiscs++;
         this.setId(nbDigitalVideoDiscs);
     }
 
     public DigitalVideoDisc(String category, String title, String director, int length, float cost) {
-        super();
-        this.setTitle(title);
-        this.setCategory(category);
-        this.director = director;
-        this.length = length;
-        this.setCost(cost);
+        // Gọi constructor của lớp Disc
+        super(title, category, director, length, cost);
         nbDigitalVideoDiscs++;
         this.setId(nbDigitalVideoDiscs);
     }
 
-    // Getter cho các thuộc tính riêng của DVD
-    public String getDirector() {
-        return director;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public static int getNbDigitalVideoDiscs() {
-        return nbDigitalVideoDiscs;
-    }
-
-    // Setter cho các thuộc tính riêng của DVD
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     @Override
     public String toString() {
-        // Sử dụng các phương thức getter từ lớp Media (getTitle, getCategory, getCost)
-        return getTitle() + " - " + (getCategory() != null ? getCategory() : "Unknown") +
-                " - " + (director != null ? director : "N/A") +
-                " - " + (length > 0 ? length + " mins" : "Unknown length") +
-                ": " + getCost() + " USD";
+        return "DVD: " + getTitle() + " - " + getCategory() + " - " + getDirector() + 
+               " - " + getLength() + " mins: " + getCost() + " $";
     }
-
     public boolean isMatch(String title) {
         return this.getTitle().equalsIgnoreCase(title);
     }
